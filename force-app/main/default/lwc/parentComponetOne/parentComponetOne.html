@@ -1,0 +1,9 @@
+<template>
+    <lightning-card title="PARENT COMPONENT: Expected Revenue">
+        SELECTED OPP ID: {salectedChildOpprtunityId}
+        <c-child-component-one 
+            related-opportunity-list={oppList} 
+            oncheckboxselection={handleSelctedOpportunity}
+        ></c-child-component-one>
+    </lightning-card>
+</template>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>52.0</apiVersion>
+    <masterLabel>LDS Example Component</masterLabel>
+    <isExposed>true</isExposed>
+    <targets>
+        <target>lightning__AppPage</target>
+    </targets>
+</LightningComponentBundle>
+
+<!--
+    ASSIGNMENT
+    1. Create two buttons called "New Opportunity" and "Recent Opportunity"
+        Initially "Recent Opportunity", is visible and "View Opportunity" is hidden
+    2. Once we click on the it, 
+        it will show the Name, Account, Closedate, Stage, Amount.
+        on the record-Edit-form.
+    3. Once we hit the save it will save the Opportunity recrod into the salesforce.
+        and the "Recent Opportunity" button is visible.
+    4. Then it will display the success Message.
+    5. After the user the Recrod-form to stored information newly create Opportunty.
+    6. Once we click on the "Recent Opportunity", 
+        then it will display the "Recrod-form" in view mode. 
+-->

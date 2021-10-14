@@ -1,0 +1,16 @@
+<template>
+    <lightning-card  title="LOOPING">
+        <lightning-button label="Add Item" slot="actions" onclick={handleAddItem}></lightning-button>
+        <p class="slds-p-horizontal_small">
+            <lightning-input type="text" label="New Food Name" onblur={handleNewFood}></lightning-input>
+            <template for:each={foodNames} for:item="foodName">
+                <li key={foodName}>{foodName}</li>
+            </template>
+            <template for:each={monthByIndex} for:item="monthIndex">
+                <li key={monthIndex.key}>{monthIndex.key} -- {monthIndex.value}</li>
+            </template>
+            <lightning-button label="Add APR" slot="actions" onclick={handleAddMonth}></lightning-button>
+        </p>
+    </lightning-card>
+    
+</template>

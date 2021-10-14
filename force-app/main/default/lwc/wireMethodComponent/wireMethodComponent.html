@@ -1,0 +1,83 @@
+<template>
+    <lightning-card  title="Apex Controller">
+        <lightning-button 
+            label="New Contact" 
+            title="Create a new Contact." 
+            onclick={handleNewClick} 
+            class="slds-m-left_x-small"
+            slot="actions"
+        ></lightning-button>
+
+        <div onkeyup={handleKeyUp} slot="actions">
+            <lightning-input
+                name="enter-search"
+                label="Search when user hits the 'enter' key"
+                type="search"
+            ></lightning-input>
+        </div>
+        <template if:true={showNewContact}>
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                <header class="slds-modal__header">
+                <button 
+                    class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" 
+                    title="Close" 
+                    onclick={handleCancelClick}>
+                    <span class="slds-assistive-text">Close</span>
+                </button>
+                <h2 id="modal-heading-01" class="slds-modal__title slds-hyphenate headerclass">Create New Contact</h2>
+                </header>
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <lightning-input 
+                        type="text" 
+                        label="Enter Last Name"
+                        onchange={handleLastName}
+                    ></lightning-input>
+                </div>
+                <footer class="slds-modal__footer">
+                    <lightning-button 
+                        variant="destructive" 
+                        label="Cancel" 
+                        title="Cancel" 
+                        onclick={handleCancelClick} 
+                        class="slds-m-left_x-small"
+                    ></lightning-button>
+                    <lightning-button 
+                        variant="brand" 
+                        label="Save" 
+                        title="Primary action" 
+                        onclick={handleSaveClick} 
+                        class="slds-m-left_x-small"
+                    ></lightning-button>
+                </footer>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </template>
+        <template if:true={contactList}>
+                <template for:each={contactList} for:item="contact">
+                    <lightning-layout key={contact.Id} multiple-rows>
+                        <lightning-layout-item 
+                            padding="around-small"
+                            size="6" large-device-size="3" medium-device-size="6" small-device-size="12">
+                            {contact.Name}
+                        </lightning-layout-item>
+                        <lightning-layout-item 
+                            padding="around-small"
+                            size="6" large-device-size="3" medium-device-size="6" small-device-size="12">
+                            {contact.Email}
+                        </lightning-layout-item>
+                        <lightning-layout-item 
+                            padding="around-small"
+                            size="6" large-device-size="3" medium-device-size="6" small-device-size="12">
+                            {contact.Phone}
+                        </lightning-layout-item>
+                    </lightning-layout>
+                </template>
+        </template>
+
+        <template if:true={error}>
+            <p >{error.body.message}</p>
+        </template>
+    </lightning-card>
+</template>

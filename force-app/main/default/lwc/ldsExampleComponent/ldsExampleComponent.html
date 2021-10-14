@@ -1,0 +1,50 @@
+<template>
+    <!-- CONDITIONAL RENDERING -->
+    <template if:true={showOportunityForm}>
+        <lightning-record-form
+            object-api-name="Opportunity"
+            record-id={opprtunityId}
+            fields={oppotunityFields}
+            columns="2"
+            mode="edit"
+            onsubmit={handleSubmit}
+            onsuccess={handleSuccess}
+            onerror={handleError}
+            onload={handleLoad}>
+        </lightning-record-form>
+    </template>
+<hr/>
+    <lightning-record-edit-form
+        object-api-name="Opportunity"
+        onsubmit={handleRecordEditSubmit}
+        onsuccess={handleSuccess}
+        onerror={handleError}
+        onload={handleLoad}>
+
+        <lightning-input-field field-name="Name" name="Name"> 
+        </lightning-input-field>
+        <lightning-input-field field-name="CloseDate"> 
+        </lightning-input-field>
+        <lightning-input-field field-name="StageName"> 
+        </lightning-input-field>
+        <lightning-input-field field-name="Amount"> 
+        </lightning-input-field>
+        
+        <div class="slds-var-m-top_medium">
+            <lightning-button
+                variant="brand"
+                type="submit"
+                label="Save">
+            </lightning-button>
+        </div>
+    </lightning-record-edit-form>
+<hr/>
+    <lightning-record-form
+        object-api-name="Account"
+        record-id="0015g00000ShYygAAF"
+        fields={accountFields}>
+    </lightning-record-form>
+</template>
+
+<!--
+-->

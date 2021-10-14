@@ -1,0 +1,23 @@
+<template>
+    <lightning-card title="Child Component">
+        <div class="slds-p-horizontal_small">
+            Opportunity List
+            <table>
+            <template for:each={relatedOpportunityList} for:item="opportunity">
+                <tr key={opportunity.Id}>
+                    <td>
+                        <lightning-input 
+                            type="checkbox" 
+                            data-id={opportunity.Id}
+                            onchange={handleCheckBox}
+                        ></lightning-input>
+                    </td>
+                    <td>
+                        {opportunity.Name}, {opportunity.ExpectedRevenue}
+                    </td>
+                </tr>
+            </template>
+            </table>
+        </div>
+    </lightning-card>
+</template>

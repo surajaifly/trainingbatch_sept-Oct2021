@@ -1,0 +1,58 @@
+<template>
+    <lightning-card  title={newInput}>
+        <p class="slds-p-horizontal_small">
+            <lightning-input 
+                type="text" 
+                label="Transfer from HTML to JS - onchange"
+                onchange={myFunction}></lightning-input>
+
+            <lightning-input 
+                type="text" 
+                label="Transfer from HTML to JS - onblur"
+                onblur={myFunction}></lightning-input>
+
+            <lightning-input 
+                type="text" 
+                label="Get value from JS"
+                value={inputFromUser}
+                onchange={myFunction}
+            ></lightning-input>
+        </p>
+        <hr />
+        <div class="slds-p-horizontal_small">
+            <h1>Contact Form</h1>
+            <lightning-input 
+                type="text" 
+                label="First Name"
+                onchange={handleFirstName}></lightning-input>
+            
+            <lightning-input 
+                type="text" 
+                label="Last Name"
+                onchange={handleLastName}></lightning-input>
+
+            Full Name: {fullName}
+        </div>
+    </lightning-card>
+    
+</template>
+
+<!--
+ASSIGNMENT
+1. Create a Contact Form with 
+    First Name, Last Name, Email, Phone fields, Billing Address
+
+2. Then Display the detials as,
+    First Name Last Name
+    Email
+    Phone
+    Street, City
+    State
+    Country - Zipcode.
+
+Bonus One:
+Formatted Email
+Formatted Phone
+Formatted Name
+Formatted Address
+-->
